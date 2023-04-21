@@ -32,6 +32,7 @@ function contact_info_settings_fields() {
     register_setting('contact_info_settings_group', 'contact_info_tagline');
     register_setting('contact_info_settings_group', 'contact_info_address');
     register_setting('contact_info_settings_group', 'contact_info_phone');
+    register_setting('contact_info_settings_group', 'contact_info_linkedin');
 
     add_settings_section('contact_info_settings_section', 'Contact Info', 'contact_info_settings_section', 'contact-info-settings');
 
@@ -39,6 +40,7 @@ function contact_info_settings_fields() {
     add_settings_field('contact_info_tagline', 'Tagline', 'contact_info_tagline_field', 'contact-info-settings', 'contact_info_settings_section');
     add_settings_field('contact_info_address', 'Address', 'contact_info_address_field', 'contact-info-settings', 'contact_info_settings_section');
     add_settings_field('contact_info_phone', 'Phone', 'contact_info_phone_field', 'contact-info-settings', 'contact_info_settings_section');
+    add_settings_field('contact_info_linkedin', 'LinkedIn', 'contact_info_linkedin_field', 'contact-info-settings', 'contact_info_settings_section');
 }
 
 // Define the settings fields
@@ -66,6 +68,11 @@ function contact_info_phone_field() {
     echo '<input type="tel" name="contact_info_phone" value="' . esc_attr($phone) . '">';
 }
 
+function contact_info_linkedin_field() {
+    $linkedin = get_option('contact_info_linkedin');
+    echo '<input type="text" name="contact_info_linkedin" value="' . esc_attr($linkedin) . '">';
+}
+
 // Define the include statements for each field
 function contact_info_title() {
     $title = get_option('contact_info_title');
@@ -85,4 +92,9 @@ function contact_info_address() {
 function contact_info_phone() {
     $phone = get_option('contact_info_phone');
     echo esc_html($phone);
+}
+
+function contact_info_linkedin() {
+    $linkedin = get_option('contact_info_linkedin');
+    echo esc_html($linkedin);
 }

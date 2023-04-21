@@ -9,6 +9,7 @@ Then within your Wordpress Theme files you can echo the text from these fields. 
     <p><?php echo contact_info_tagline(); ?></p>
     <address><?php echo contact_info_address(); ?></address>
     <div class="phone"><?php echo contact_info_phone(); ?></div>
+    <a href="<?php echo contact_info_linkedin(); ?>" target="_blank" rel="noopener">LinkedIn</a>
 
 # Todo:
 * Add ability to only display specific markup if the user entered text withint the field. For example, if there is no 'contact_info_title' then we should also not output the h2 tags that wrap it.
